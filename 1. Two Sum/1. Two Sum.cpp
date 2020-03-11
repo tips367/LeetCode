@@ -16,7 +16,6 @@ return[0, 1].
 #include <algorithm>
 #include <unordered_map>
 
-using namespace std;
 /*
 //  1. Using Brute Force
 vector<int> twoSum(vector<int>& nums, int target) {
@@ -59,11 +58,11 @@ vector<int> twoSum(vector<int>& nums, int target) {
 */
 
 // 3. Using one-pass hash table
-vector<int> twoSum(vector<int>& nums, int target) {
+std::vector<int> twoSum(std::vector<int>& nums, int target) {
 
     //Key is the number and value is its index in the vector.
-    unordered_map<int, int> hash;
-    vector<int> result;
+    std::unordered_map<int, int> hash;
+    std::vector<int> result;
     for (int i = 0; i < nums.size(); i++)
     {
         int numberToFind = target - nums[i];
@@ -82,11 +81,12 @@ vector<int> twoSum(vector<int>& nums, int target) {
 
 int main()
 {
-    vector<int> vect{ 2,7,11,15 };
+    std::vector<int> vect{ 2,7,11,15 };
     int target = 9;
-    vector<int> result = twoSum(vect,target);
+    std::vector<int> result = twoSum(vect,target);
     if (result[0] != -1)
-        cout << "[" << result[0] << "," << result[1] << "]";
+        std::cout << "[" << result[0] << "," << result[1] << "]";
     else
-        cout << "No two sum solution";
+        std::cout << "No two sum solution";
+    return 0;
 }
