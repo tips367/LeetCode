@@ -20,11 +20,14 @@ Output: 1
 #include <vector>
 #include <unordered_map>
 
-// 1. Using Hash
+// 1. Using Hash Table.      Time complexity : O(n), Space complexity : O(n)
+/*
 int singleNumber(std::vector<int>& nums)
 {
     //Key is the number and value is its index in the vector.
     std::unordered_map<int, int> hashMap;
+
+    //Iterate through all elements in nums and set up key/value pair.
     for (int i=0; i < nums.size(); i++)
     {
         hashMap[nums[i]] = hashMap[nums[i]] + 1;
@@ -32,22 +35,21 @@ int singleNumber(std::vector<int>& nums)
 
     for (int i = 0; i < nums.size(); i++)
     {
+        // Return the element which appeared only once.
         if (hashMap[nums[i]] == 1)
             return nums[i];
     }
     return 0;
-}
+} */
 
-
-/*
+// 2. Using Bit Manipulation.      Time complexity : O(n), Space complexity : O(1)
 int singleNumber(std::vector<int>& nums) 
 {
     int number = 0;
     for (auto num : nums)
         number ^= num;
     return number;
-} */
-
+} 
 
 int main()
 {
